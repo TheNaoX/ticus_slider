@@ -12,5 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
+//= require angular/angular
+//= require angular-resource/angular-resource
+//= require angular-route/angular-route
+//= require ./app/init
+//= require_tree ./app/images
+
+$(function() {
+  angular.bootstrap(document, ['ticusApp']);
+});

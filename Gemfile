@@ -8,9 +8,11 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
+gem 'devise'
 
 group :development, :test do
   gem 'rspec'
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem 'byebug'
