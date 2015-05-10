@@ -9,3 +9,20 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+
+# Paths from where required files in manifests can be found
+
+Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'stylesheets')
+
+Rails.application.config.assets.precompile.push(Proc.new do |path|
+  File.extname(path).in? [
+    '.html', '.erb', '.haml',                                  # Templates
+    '.png',  '.gif', '.jpg', '.jpeg', '.svg', '.eps', '.ico',  # Images
+    '.eot',  '.otf', '.svc', '.woff', '.ttf',                  # Fonts
+  ]
+end)
+
+Rails.application.config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
+::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
