@@ -12,9 +12,9 @@ describe ImagePartsController do
       get :index, format: :json
       response_json = JSON.parse(response.body)
       expect(response_json).to eq({
-        "headers" => [{ "id" => header.id.to_s, "image" => "Foo", "type" => "header" }],
-        "bodies"  => [{ "id" => body.id.to_s,   "image" => "Foo", "type" => "body"   }],
-        "footers" => [{ "id" => footer.id.to_s, "image" => "Foo", "type" => "footer" }]
+        "headers" => [{ "id" => header.id.to_s, "image" => header.image.url, "type" => "header" }],
+        "bodies"  => [{ "id" => body.id.to_s,   "image" => body.image.url,   "type" => "body"   }],
+        "footers" => [{ "id" => footer.id.to_s, "image" => footer.image.url, "type" => "footer" }]
       })
     end
   end

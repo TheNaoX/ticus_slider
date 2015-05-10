@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :image_part do
-    image "Foo"
+    image { File.open("#{Rails.root}/spec/support/fixtures/sample.jpg") }
     trait :header do
       type "header"
     end
